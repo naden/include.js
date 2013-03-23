@@ -100,10 +100,20 @@ function include() {
 
 	// injects a javascript file to the pages <head> section
 	function _inject(file, callback) {
-		var s = document.createElement('script');
+    
+    var async = false, tokens = file.split('#');
+    
+    if(tokens.length == 2) {
+      async = tokens[1] == 'async';
+      file = tokens[0];
+    }
+        
+    var s = document.createElement('script');
 		s.type = 'text/javascript';
 	  s.src = file + '?' + Math.random().toString().substring(2);
-		// s.async =
+	  if(async) {
+		  s.async = true;
+		}
 
 		if(callback) {
 			var loaded = false;

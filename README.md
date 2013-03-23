@@ -1,13 +1,19 @@
 include.js
 ===============================
 
-Advanced include implementation for javascript.
+Advanced include implementation for javascript files.
+
+Add #async to any filename to enable asynchronous loading for that file.
 
 __Include a single file__
 
     include('test1.js');
 
     include(['test1.js']);
+
+__Include a single file with async loading__
+
+    include('test1.js#async');
 
 __Include a single file and execute a callback function after it's loaded__
 
